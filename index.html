@@ -16,7 +16,6 @@
   <body>
     <header class="header">
       <div class="container">
-        
         <nav class="nav">
           <div class="nav__search__box">
             <input
@@ -56,18 +55,41 @@
             </a>
           </div>
         </nav>
-        <div class="nav__category-link__box"></div>
         <span class="all__products"></span>
         <div class="controls__box">
           <div class="pagination"></div>
         </div>
       </div>
+      <div class="nav__category-link__box"></div>
     </header>
     <main>
       <div class="card__products__row container"></div>
     </main>
-    <footer hidden class="container">
-      <h1>Footer</h1>
+    <footer>
+      <div class="nav__links__footer">
+        <a href="pages/cart.html" class="cart__products">
+          <span class="cart__quantity"></span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="36px"
+            viewBox="0 -960 960 960"
+            width="36px"
+            fill="#ffa500"
+          >
+            <path
+              d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"
+            />
+          </svg>
+        </a>
+        <a href="pages/favorite.html" class="favorite__link">
+          <span class="favorite__quantity"></span>
+          <img
+            src="/assets/images/icons/heart-active.png"
+            alt="heart "
+            width="36"
+          />
+        </a>
+      </div>
     </footer>
   </body>
 </html>

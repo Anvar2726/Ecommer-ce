@@ -1,15 +1,12 @@
 const categoryName = document.querySelector(".category__name");
 const categoryRow = document.querySelector(".category__row");
 
-
-const storageCategoryName = localStorage.getItem("ecmCategory")
-categoryName.innerHTML = `Category: ${storageCategoryName}`;
-
+const storageCategoryName = localStorage.getItem("ecmCategory");
+categoryName.innerHTML = `Category: <b>${storageCategoryName}</b>`;
 
 const categoryProducts = products.filter(
   (el) => el.category === storageCategoryName
 );
-
 
 function getCardProduct({
   id,
@@ -26,7 +23,7 @@ function getCardProduct({
   return `
   <div class="card__product">
     <div class="card__product__img__box">
-      <img class="card__product__img" src="${images[0]}" alt="${name}" />
+      <a href="/pages/product.html" onclick="saveDetail(${id}, 'productId')"><img class="card__product__img" src="${images[0]}" alt="${name}" /></a>
       ${discount > 0 ? `<span >-${discount}%</span>` : " "}
       <button onclick="addToFavorite(${id}, 'ecmFavoriteProducts', products, favoriteProducts, getCategoryProducts, getFavoriteQuantity)" class="card__product__favorite">
         ${
@@ -59,7 +56,7 @@ function getCardProduct({
             ? `${discountPrice.toFixed(
                 1
               )}$ <span class="old__price">${price}$</span>`
-            : `${price}`
+            : `${price} $`
         }
         </b> </p>
       </div>
@@ -67,13 +64,10 @@ function getCardProduct({
   </div>`;
 }
 
-function getCategoryProducts(){
-    categoryRow.innerHTML = " "
-    categoryProducts.forEach((el) => {
-      categoryRow.innerHTML += getCardProduct(el);
-    });
+function getCategoryProducts() {
+  categoryRow.innerHTML = " ";
+  categoryProducts.forEach((el) => {
+    categoryRow.innerHTML += getCardProduct(el);
+  });
 }
 getCategoryProducts();
-
-
-

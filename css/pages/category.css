@@ -1,11 +1,41 @@
 @import "../base/global.css";
 
-.header{
-    padding: 20px 0;
+main {
+  margin-right: 40px;
 }
 
-.category__row{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+.category__home-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #ffa500;
+  margin-bottom: 10px;
+}
+
+.header {
+  padding: 20px 0;
+}
+
+.category__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: space-between;
+}
+
+@media (max-width: 1000px) {
+  .category__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .category__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .category__row {
+    grid-template-columns: 1fr;
+  }
 }

@@ -16,8 +16,8 @@ function getCardProduct({
   <div class="card__product">
     <div class="card__product__img__box">
       <img
-        class="card__product__img"
-        src="${images[0]}"
+        class="card__product__img lazy-img"
+        data-src="${images[0]}"
         alt="${name}"
       />
       ${discount > 0 ? `<span >-${discount}%</span>` : " "}
@@ -60,10 +60,50 @@ function getCardProduct({
   </div>`;
 }
 
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.onload = () => img.classList.add("loaded");
+        observer.unobserve(img);
+      }
+    });
+  },
+  {
+    rootMargin: "0px 0px 200px 0px",
+    threshold: 0.1,
+  }
+);
+
 function getFavoriteProducts() {
-  favoriteProductsRow.innerHTML = " ";
-  favoriteProducts.forEach((el) => {
-    favoriteProductsRow.innerHTML += getCardProduct(el);
-  });
-} 
+  favoriteProductsRow.innerHTML = "";
+  for (let i = 0; i < favoriteProducts.length; i++) {
+    favoriteProductsRow.innerHTML += `
+      <div class="card__product shimmer">
+        <div class="shimmer-img shimmer-animate"></div>
+        <div class="shimmer-lines">
+          <div class="shimmer-line shimmer-animate"></div>
+          <div class="shimmer-line shimmer-animate short"></div>
+        </div>
+      </div>
+    `;
+  }
+  setTimeout(() => {
+
+    favoriteProductsRow.innerHTML = "";
+    favoriteProducts.forEach((el) => {
+      favoriteProductsRow.innerHTML += getCardProduct(el);
+    });
+
+    observer.disconnect();
+    const lazyImages = document.querySelectorAll(".lazy-img");
+    lazyImages.forEach((img) => observer.observe(img));
+  }, 1000);
+}
 getFavoriteProducts();
+
+
+
+

@@ -2,6 +2,10 @@
 html {
   overflow-y: scroll;
 }
+main {
+  margin-right: 40px;
+  margin-bottom: 90px;
+}
 
 .header {
   padding: 20px;
@@ -13,9 +17,6 @@ html {
 .all__products {
   padding: 20px 0;
   display: inline-block;
-}
-main {
-  margin-right: 40px;
 }
 
 .nav {
@@ -29,6 +30,60 @@ main {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+.nav__links__footer {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  bottom: -1%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 40px;
+  background-color: white;
+}
+
+.favorite__link {
+  position: relative;
+  display: inline-block;
+}
+
+.favorite__quantity {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f13535;
+  background-color: #f13535;
+  border-radius: 50%;
+  display: inline-block;
+  right: -10px;
+  top: -8px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.cart__products {
+  display: inline-block;
+  position: relative;
+}
+
+.cart__quantity {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffa500;
+  background-color: #ffa500;
+  border-radius: 50%;
+  display: inline-block;
+  right: -5px;
+  top: -8px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
 }
 
 .nav__search__box {
@@ -53,9 +108,18 @@ main {
     width: 200px;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 524px) {
+  .nav__links {
+    display: none;
+  }
   .search__input {
-    width: 100px;
+    width: 100%;
+  }
+  .nav__search__box {
+    width: 100%;
+  }
+  .nav__links__footer {
+    display: flex;
   }
 }
 
@@ -67,10 +131,14 @@ main {
   position: absolute;
   z-index: -1;
   top: -1%;
+  left: 7%;
   padding: 35px 0;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 50px;
   background-color: white;
+  opacity: 0;
   transition: 0.5s;
 }
 
@@ -78,29 +146,11 @@ main {
   top: 40%;
   z-index: 1;
   transition: 0.5s;
+  opacity: 1;
 }
 
 .categories__link {
   color: black;
-}
-
-.favorite__link {
-  position: relative;
-}
-
-.favorite__quantity {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #f13535;
-  background-color: #f13535;
-  border-radius: 50%;
-  display: inline-block;
-  right: -10px;
-  top: -8px;
-  text-align: center;
-  font-size: 18px;
-  color: white;
 }
 
 .card__products__row {
@@ -173,24 +223,4 @@ main {
   display: flex;
   gap: 20px;
   align-items: center;
-}
-
-.cart__products {
-  display: inline-block;
-  position: relative;
-}
-
-.cart__quantity {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ffa500;
-  background-color: #ffa500;
-  border-radius: 50%;
-  display: inline-block;
-  right: -5px;
-  top: -8px;
-  text-align: center;
-  font-size: 18px;
-  color: white;
 }
