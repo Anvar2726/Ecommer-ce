@@ -1,0 +1,11 @@
+@import "../base/global.css";
+
+html {
+  overflow-y: scroll;
+}
+
+.favorite-products__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}

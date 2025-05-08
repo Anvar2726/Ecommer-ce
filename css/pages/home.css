@@ -1,0 +1,196 @@
+@import "../base/global.css";
+html {
+  overflow-y: scroll;
+}
+
+.header {
+  padding: 20px;
+  position: relative;
+  padding-right: 40px;
+  background-color: white;
+}
+
+.all__products {
+  padding: 20px 0;
+  display: inline-block;
+}
+main {
+  margin-right: 40px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav__search__box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 50%;
+}
+.nav__search__box a {
+  color: #ffa500;
+}
+
+.search__input {
+  width: 100%;
+  outline: none;
+  padding: 8px;
+  border: 1px solid orange;
+  border-radius: 4px;
+}
+@media (max-width: 648px) {
+  .search__input {
+    width: 200px;
+  }
+}
+@media (max-width: 500px) {
+  .search__input {
+    width: 100px;
+  }
+}
+
+.search__input:focus {
+  box-shadow: 0px 2px 3px rgba(253, 240, 100, 0.6);
+}
+
+.nav__category-link__box {
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  padding: 35px 0;
+  display: flex;
+  gap: 50px;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.categoty-link__active {
+  top: 40%;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.categories__link {
+  color: black;
+}
+
+.favorite__link {
+  position: relative;
+}
+
+.favorite__quantity {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f13535;
+  background-color: #f13535;
+  border-radius: 50%;
+  display: inline-block;
+  right: -10px;
+  top: -8px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.card__products__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 1101px) {
+  .card__products__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .card__products__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .card__products__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.disabled {
+  background-color: rgb(140, 143, 146) !important;
+  color: black !important;
+  border: 1px solid transparent !important;
+  cursor: not-allowed;
+}
+
+.active {
+  background-color: transparent !important;
+  color: orange !important;
+  border: 1px solid orange;
+}
+
+.pagination button {
+  background-color: orange;
+  color: white;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+  background-color: transparent;
+  border: 1px solid orange;
+  color: orange;
+}
+
+.prev__btn,
+.next__btn {
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.page__btn {
+  padding: 4px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.controls__box {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cart__products {
+  display: inline-block;
+  position: relative;
+}
+
+.cart__quantity {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffa500;
+  background-color: #ffa500;
+  border-radius: 50%;
+  display: inline-block;
+  right: -5px;
+  top: -8px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}

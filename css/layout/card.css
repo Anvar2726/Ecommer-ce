@@ -1,0 +1,104 @@
+.card__product {
+  box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 1s;
+
+}
+
+.card__product:hover .card__product__favorite{
+  right: 20px;
+}
+
+.card__product__favorite{
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+}
+
+.card__product__content__box {
+  padding: 8px;
+}
+
+.card__product__content__box div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__product__btn {
+  padding: 8px 10px;
+  background: #28a745;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+}
+
+.card__product__btn:hover{
+  background: #218838;
+
+}
+
+.card__product__img__box {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.card__product__img__box span {
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  top: 25px;
+  left: -25px;
+  width: 120px;
+  text-align: center;
+  transform: rotate(-45deg);
+  background-color: orange;
+}
+
+.card__product__img {
+  width: 100%;
+  transition: 0.5s;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.card__product__img:hover {
+  transform: scale(1.05);
+}
+
+.card__product__name {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.card__product__desc {
+  height: 60px;
+  overflow: hidden;
+}
+
+.card__controls {
+  border-radius: 4px;
+  background-color: rgb(209, 169, 95);
+}
+
+.card__controls button {
+  padding: 8px 10px;
+  font-size: 14px;
+  color: white;
+}
+
+.card__controls span {
+  background-color: coral;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.old__price {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  font-size: 14px;
+  background-color: transparent ;
+}

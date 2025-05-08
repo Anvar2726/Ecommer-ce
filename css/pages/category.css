@@ -1,0 +1,11 @@
+@import "../base/global.css";
+
+.header{
+    padding: 20px 0;
+}
+
+.category__row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
