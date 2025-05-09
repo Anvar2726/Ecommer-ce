@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite Products</title>
-    <link rel="stylesheet" href="/css/pages/favorite.css">
+    <link rel="stylesheet" href="/css/pages/favorite.css" />
 
     <!-- JAVASCRIPT LINKS -->
-     <script defer src="/js/products-data.js" ></script>
-     <script defer src="/js/main.js" ></script>
-     <script defer src="/js/utils.js" ></script>
-     <script defer src="/js/favorite.js" ></script>
-</head>
-<body>
-    <header hidden class="container">
-        <h1>header</h1>
+    <script defer src="/js/products-data.js"></script>
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/utils.js"></script>
+    <script defer src="/js/favorite.js"></script>
+  </head>
+  <body>
+    <header class="header container">
+      <a href="/index.html" class="favorite__home-link">
+        <img src="/assets/images/icons/back.svg" alt="back to home" /> Back
+      </a>
+      <h2>Favorite products</h2>
     </header>
-    <main class="container">
-        <div class="favorite-products__row"></div>
+    <main>
+      <div class="favorite-products__row container"></div>
     </main>
     <footer hidden class="footer container">
-        <h1>footer</h1>
+      <h1>footer</h1>
     </footer>
-</body>
+  </body>
 </html>

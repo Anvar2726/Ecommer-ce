@@ -15,11 +15,9 @@ function getCardProduct({
   return `
   <div class="card__product">
     <div class="card__product__img__box">
-      <img
-        class="card__product__img lazy-img"
-        data-src="${images[0]}"
-        alt="${name}"
-      />
+       <a href="/pages/product.html" onclick="saveDetail(${id}, 'productId')"><img class="card__product__img" src="${
+    images[0]
+  }" alt="${name}" /></a>
       ${discount > 0 ? `<span >-${discount}%</span>` : " "}
        <button onclick="addToFavorite(${id}, 'ecmFavoriteProducts', products, favoriteProducts, getFavoriteProducts)" class="card__product__favorite">
         ${
@@ -52,7 +50,7 @@ function getCardProduct({
             ? `${discountPrice.toFixed(
                 1
               )}$ <span class="old__price">${price}$</span>`
-            : `${price}`
+            : `${price} $`
         }
         </b> </p>
       </div>
@@ -60,50 +58,16 @@ function getCardProduct({
   </div>`;
 }
 
-const observer = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.onload = () => img.classList.add("loaded");
-        observer.unobserve(img);
-      }
-    });
-  },
-  {
-    rootMargin: "0px 0px 200px 0px",
-    threshold: 0.1,
-  }
+renderShimmer(
+  favoriteProductsRow,
+  favoriteProducts.length,
+  1000,
+  getFavoriteProducts
 );
 
 function getFavoriteProducts() {
   favoriteProductsRow.innerHTML = "";
-  for (let i = 0; i < favoriteProducts.length; i++) {
-    favoriteProductsRow.innerHTML += `
-      <div class="card__product shimmer">
-        <div class="shimmer-img shimmer-animate"></div>
-        <div class="shimmer-lines">
-          <div class="shimmer-line shimmer-animate"></div>
-          <div class="shimmer-line shimmer-animate short"></div>
-        </div>
-      </div>
-    `;
-  }
-  setTimeout(() => {
-
-    favoriteProductsRow.innerHTML = "";
-    favoriteProducts.forEach((el) => {
-      favoriteProductsRow.innerHTML += getCardProduct(el);
-    });
-
-    observer.disconnect();
-    const lazyImages = document.querySelectorAll(".lazy-img");
-    lazyImages.forEach((img) => observer.observe(img));
-  }, 1000);
+  favoriteProducts.forEach((el) => {
+    favoriteProductsRow.innerHTML += getCardProduct(el);
+  });
 }
-getFavoriteProducts();
-
-
-
-

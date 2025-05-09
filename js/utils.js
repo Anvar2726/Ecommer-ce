@@ -83,3 +83,23 @@ function getRating(rating) {
       return `<img width="100" src="/assets/images/icons/1.png" alt="2 rating">`;
   }
 }
+
+
+// RENDER SHIMMER
+function renderShimmer(renderRow, iteration, time, callback) {
+  renderRow.innerHTML = "";
+  for (let i = 0; i < iteration; i++) {
+    renderRow.innerHTML += `
+      <div class="card__product shimmer">
+        <div class="shimmer-img shimmer-animate"></div>
+        <div class="shimmer-lines">
+          <div class="shimmer-line shimmer-animate"></div>
+          <div class="shimmer-line shimmer-animate short"></div>
+        </div>
+      </div>
+    `;
+  }
+  setTimeout(() => {
+    callback();
+  }, time);
+}

@@ -4,8 +4,41 @@ html {
   overflow-y: scroll;
 }
 
+main {
+  margin-right: 50px;
+}
+
+.header {
+  padding: 20px 0;
+}
+
 .favorite-products__row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+}
+
+@media (max-width: 1080px) {
+  .favorite-products__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 786px) {
+  .favorite-products__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .favorite-products__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.favorite__home-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #ffa500;
+  margin-bottom: 10px;
 }

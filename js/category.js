@@ -23,7 +23,9 @@ function getCardProduct({
   return `
   <div class="card__product">
     <div class="card__product__img__box">
-      <a href="/pages/product.html" onclick="saveDetail(${id}, 'productId')"><img class="card__product__img" src="${images[0]}" alt="${name}" /></a>
+      <a href="/pages/product.html" onclick="saveDetail(${id}, 'productId')"><img class="card__product__img" src="${
+    images[0]
+  }" alt="${name}" /></a>
       ${discount > 0 ? `<span >-${discount}%</span>` : " "}
       <button onclick="addToFavorite(${id}, 'ecmFavoriteProducts', products, favoriteProducts, getCategoryProducts, getFavoriteQuantity)" class="card__product__favorite">
         ${
@@ -64,10 +66,11 @@ function getCardProduct({
   </div>`;
 }
 
+renderShimmer(categoryRow, categoryProducts.length, 500, getCategoryProducts);
+
 function getCategoryProducts() {
   categoryRow.innerHTML = " ";
   categoryProducts.forEach((el) => {
     categoryRow.innerHTML += getCardProduct(el);
   });
 }
-getCategoryProducts();

@@ -1,6 +1,14 @@
 @import "../base/global.css";
 
-
+.product__home-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #ffa500;
+  margin-bottom: 10px;
+  padding-top: 10px ;
+}
 .product-container {
   display: flex;
   max-width: 1200px;
@@ -11,7 +19,6 @@
   overflow: hidden;
   padding: 20px;
 }
-
 .image-gallery {
   display: flex;
   flex-direction: row;
@@ -84,6 +91,39 @@
 
 .product__ad-to-cart :hover {
   background: #218838;
+}
+
+@media (max-width: 867px) {
+  .product-container {
+    flex-direction: column;
+  }
+  .image-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding-right: 50px;
+    width: 95%;
+    margin-right: 50px;
+  }
+  .thumbnails img {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 570px) {
+  .thumbnails img {
+    width: 55px;
+    height: 55px;
+  }
+  .image-gallery {
+    padding: 0px;
+  }
 }
 
 /* CARD CONTROLS */

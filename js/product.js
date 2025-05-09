@@ -14,7 +14,12 @@ const rating = productFound.rating;
 const category = productFound.category;
 
 function getProductRow() {
-  const inCart = cartProducts.find(el => el.id === id)
+  const inCart = cartProducts.find((el) => el.id === id);
+  const discountedPrice = ((100 - discount) / 100) * price;
+  let totalPrice;
+  if (discount > 0) {
+    totalPrice = ((100 - discount) / 100) * price * inCart?.quantity || 0;
+  }else totalPrice = price * inCart?.quantity || 0
   return (productRow.innerHTML = `
     <div class="product-container">
       <div class="image-gallery">
@@ -54,7 +59,10 @@ function getProductRow() {
         <p class="description">
           ${description}
         </p>
-        <p class="price">Price: <strong>${price}$</strong></p>
+        <p class="price">Price: <strong>${
+          discount > 0 ? `${discountedPrice.toFixed(2)}` : `${price}`
+        }$</strong></p>
+        <p>Total Price: ${totalPrice.toFixed(2)}</p>
         <p class="rating">Rating: ${getRating(rating)}</p>
         ${
           inCart
@@ -73,7 +81,7 @@ function getProductRow() {
     </div>`);
 }
 
-getProductRow()
+getProductRow();
 function changeImage(element) {
   document.getElementById("main-image").src = element.src;
 }
